@@ -1,0 +1,106 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+    font-family:'Times New Roman', Times, serif;
+}
+
+:root {
+    --hue-neutral: 200;
+    --hue-wrong: 0;
+    --hue-correct: 145;
+}
+
+body {
+    --hue: var(--hue-neutral);
+    padding-top:10%;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    width:100%;
+    height: 100%;
+    align-items: center;
+    background-color: hsl(var(--hue), 100%, 20%);
+}
+
+body.correct {
+    --hue: var(--hue-correct);
+
+}
+
+body.wrong {
+    --hue: var(--hue-wrong);
+}
+
+.container {
+    width: 800px;
+    max-width: 80%;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px 2px;
+}
+
+.card {
+    background: radial-gradient(circle, rgba(240,230,140,1) 0%, rgba(187,124,33,0.604079131652661) 100%);
+    border: 1px solid #eceff1;
+    border-radius: 8px;
+    
+      
+    margin: auto;
+    padding: 20px;
+  }
+
+.timer {
+    
+    padding: 10px;
+    background: #13293d;
+    color: #fff;
+    text-align: center;
+}
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap:10px;
+    margin: 20px 0;
+}
+
+.btn {
+    --hue: var(--hue-neutral);
+    border: 1px solid hsl(var(--hue), 100%, 30%);
+    background-color: hsl(var(--hue), 100%, 50%);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: #ffffff;
+    outline: none;
+
+}
+
+.btn:hover {
+    border-color: #e40000;
+}
+
+.btn.correct {
+    --hue: var(--hue-correct);
+    color: #000000
+}
+
+.btn.wrong {
+    --hue: var(--hue-wrong);
+}
+ 
+.start-btn, .next-btn {
+    font-size: 1.5 rem;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide,.score, .yourScore {
+    display: none;
+}
+

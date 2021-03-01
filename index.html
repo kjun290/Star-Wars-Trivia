@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Star Wars Quiz</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='Assets/style.css'>
+    <a href = ""
+</head>
+
+<body>
+    <div class="container">
+        <div id="question-container" class="hide">
+            <div id="question">Question</div>
+            <div id="answer-buttons" class="btn-grid">
+                <button class="btn">Answer 1</button> 
+                <button class="btn">Answer 2</button> 
+                <button class="btn">Answer 3</button> 
+                <button class="btn">Answer 4</button> 
+            </div>
+        </div>
+        <div class="controls">
+            <button id="start-btn" class="start-btn btn">Start</button>
+            <button id="next-btn" class="next-btn btn hide">Next</button>
+
+        </div>
+<div class= "card timer">
+    <div class = "timer-text">
+    <div class="large-font timer-count">60</div>
+    <h3>seconds remaining</h3>
+    </div>
+    </div>
+
+<div class = "score">
+    <p>Your Score is: <span id="yourScore"></span></p>
+    <p>Enter your initials</p>
+    <input type='text' id='init'/>
+    <button id='submit'>Submit</button>
+</div>
+
+    <!-- <div>
+        show score
+        show input with buttom
+        button will need functionality  (grabbing value from input and final score, storing in local storage, takes you highschore page)
+        <p>Your score is <span id="score"></span> </p>
+        <p>Enter your initials</p>
+        <input type='text' id='init'/>
+        <button id='submit'>Submit</button>
+    </div> -->
+
+    <script src = "Assets/script.js"></script>
+</body>
+</html>

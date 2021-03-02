@@ -3,4 +3,6 @@ Quiz on Star Wars
 
 Test you knowledge of Star Wars Original Trilogy with his quiz. You have 60 seconds to complete it. For every wrong answer you are deducted 5 seconds. Good Luck!
 
-![QuizScreenShot](https://user-images.githubusercontent.com/73242250/109597044-1397ab00-7add-11eb-85e7-2d44d64135bb.png)
+![QuizScreenShot1](https://user-images.githubusercontent.com/73242250/109597209-640f0880-7add-11eb-86d8-7b375ccd1d61.png)
+![QuizScreenShot2](https://user-images.githubusercontent.com/73242250/109597210-64a79f00-7add-11eb-8e27-bf9fe3726a71.png)
+

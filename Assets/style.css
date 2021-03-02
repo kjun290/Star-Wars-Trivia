@@ -1,7 +1,4 @@
-*, *::before, *::after{
-    box-sizing: border-box;
-    font-family:'Times New Roman', Times, serif;
-}
+
 
 :root {
     --hue-neutral: 200;
@@ -104,3 +101,10 @@ body.wrong {
     display: none;
 }
 
+
+nav a {
+    color: #ffffff;
+    position: absolute;
+    top: 0;
+    right: 0;
+}

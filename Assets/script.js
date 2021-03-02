@@ -72,6 +72,7 @@ function showQuestion() {
     }
     button.addEventListener('click', selectAnswer)
     answerButtonsElement.appendChild(button)
+    
   })
 }
 
@@ -87,27 +88,28 @@ function selectAnswer(e) {
   var selectedButton = e.target
   var correct = selectedButton.dataset.correct
 
+
+  // subtract 5 seconds for wrong answer
   if (!correct) {
     timerCount-= 5
   }
-// subtract 5 seconds for wrong answer
-// timerCount= timerCount + timerCount -5;
-// timercount-= 5;
 
+setStatusClass(document.body, correct)
+Array.from(answerButtonsElement.children).forEach(button => {
+  setStatusClass(button, button.dataset.correct)
+})
+if (randomQuestion.length > currentQuestionIndex + 1) {
+  nextButton.classList.remove('hide')
+} else {
+  console.log (timerCount);
+  localStorage.setItem("score", timerCount);
+
+clearInterval (timer);
+  startButton.innerText = 'Restart';
+  startButton.classList.remove('hide');
   
-
-  setStatusClass(document.body, correct)
-  Array.from(answerButtonsElement.children).forEach(button => {
-    setStatusClass(button, button.dataset.correct)
-  })
-  if (randomQuestion.length > currentQuestionIndex + 1) {
-    nextButton.classList.remove('hide')
-  } else {
-    console.log (timerCount);
-    startButton.innerText = 'Restart';
-    startButton.classList.remove('hide');
-    clearInterval (timer);
-  }
+  
+}
 }
 
 function setStatusClass(element, correct) {
@@ -126,12 +128,12 @@ function clearStatusClass(element) {
 }
 
 
-// function points () {
-
-// }
 
 // High Score using local storage
-
+//   document.getElementById ("score").innterHTML=localStorage.getItem("score");
+//   let oldScores = JSON.parse(window.localStorage.getItem("score")) || [];
+// oldScores.push(score);
+// window.localStorage.setItem("scoreComb", JSON.stringify(oldScores));
 
 // List of Quiz Questions 
 

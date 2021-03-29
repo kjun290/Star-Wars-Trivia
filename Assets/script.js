@@ -8,22 +8,22 @@ var timerElement = document.querySelector(".timer-count");
 var timer;
 var timerCount;
 
-let randomQuestion, currentQuestionIndex
+let randomQuestion, QuestionList
 
-startButton.addEventListener('click', startGame)
+startButton.addEventListener('click', beginQuiz)
 nextButton.addEventListener('click', () => {
-  currentQuestionIndex++
-  setNextQuestion()
+  QuestionList++
+  setNextQuest()
 })
 
-function startGame() {
+function beginQuiz() {
   startButton.classList.add('hide')
   randomQuestion = questions.sort(() => Math.random() - .5)
-  currentQuestionIndex = 0
+  QuestionList = 0
   questionContainerElement.classList.remove('hide')
   timerCount = 60
-  setNextQuestion()
-
+  setNextQuest()
+ 
   startTimer()
 }
 
@@ -55,13 +55,13 @@ function endGame() {
    // window.location.href = "highscores.html"
     }
 
-function setNextQuestion() {
+function setNextQuest() {
   resetState()
-  showQuestion()
+  showQuest()
 }
 
-function showQuestion() {
-  let question =  randomQuestion[currentQuestionIndex];
+function showQuest() {
+  let question =  randomQuestion[QuestionList];
   questionElement.innerText = question.question
   question.answers.forEach(answer => {
     var button = document.createElement('button')
@@ -70,7 +70,7 @@ function showQuestion() {
     if (answer.correct) {
       button.dataset.correct = answer.correct
     }
-    button.addEventListener('click', selectAnswer)
+    button.addEventListener('click', chosenAnswer)
     answerButtonsElement.appendChild(button)
     
   })
@@ -84,12 +84,12 @@ function resetState() {
   }
 }
 
-function selectAnswer(e) {
+function chosenAnswer(e) {
   var selectedButton = e.target
   var correct = selectedButton.dataset.correct
 
 
-  // subtract 5 seconds for wrong answer
+  // subtract 5 seconds for incorrect answer
   if (!correct) {
     timerCount-= 5
   }
@@ -98,16 +98,15 @@ setStatusClass(document.body, correct)
 Array.from(answerButtonsElement.children).forEach(button => {
   setStatusClass(button, button.dataset.correct)
 })
-if (randomQuestion.length > currentQuestionIndex + 1) {
+if (randomQuestion.length > QuestionList + 1) {
   nextButton.classList.remove('hide')
 } else {
-  console.log (timerCount);
+  // console.log (timerCount);
   localStorage.setItem("score", timerCount);
 
 clearInterval (timer);
   startButton.innerText = 'Restart';
   startButton.classList.remove('hide');
-  
   
 }
 }
@@ -117,16 +116,15 @@ function setStatusClass(element, correct) {
   if (correct) {
     element.classList.add('correct')
   } else {
-    element.classList.add('wrong')
+    element.classList.add('incorrect')
   }
 
 }
 
 function clearStatusClass(element) {
   element.classList.remove('correct')
-  element.classList.remove('wrong')
+  element.classList.remove('incorrect')
 }
-
 
 
 // High Score using local storage
